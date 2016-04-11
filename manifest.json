@@ -28,7 +28,7 @@
      "matches": ["https://ssl.jobcan.jp/*"],
      "js": ["js/jquery-2.2.2.min.js", "js/common.js"],
      "css": ["css/style.css"],
-     "run_at": "document_idle"
+     "run_at": "document_start"
    }
  ],
 
