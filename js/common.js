@@ -117,13 +117,25 @@ $(function(){
     'background':'none',
     'border':'1px solid #fff'
   }).mouseenter(function(){
-    $(this).animate({
-      fontSize:'23px'
-    }, 200);
+    $(this).velocity({
+      borderColor: "#3498DB",
+      color: "#3498DB"
+    }, { duration : 300});
+
+    // $(this).velocity(
+    //   { opacity: .4 },
+    //   { curation: 1000}
+    // );
+
   }).mouseleave(function(){
-    $(this).animate({
-      fontSize:'20px'
-    }, 200);
+    $(this).velocity({
+      borderColor: "#fff",
+      color: "#fff"
+    }, { duration : 300 });
+    // $(this).velocity(
+    //   { opacity: 1 },
+    //   { curation: 1000}
+    // );
   });
 
   $inputText.css({
