@@ -1,5 +1,6 @@
 $(function(){
   //common
+  $html = $('html');
   $body = $('body');
   $header = $('#header');
   $headerInner = $('#header #header-inner');
@@ -10,6 +11,7 @@ $(function(){
   $btnLogout = $('#login-contents .btn-small');
   $headerTd = $('#header td');
   $footer = $('#all-footer');
+  $footerInside = $('#all-footer p');
   $navBar = $('.navbar');
   $navBarInner = $('.navbar-inner');
   $nav = $('.nav');
@@ -17,26 +19,46 @@ $(function(){
 
   //top
   $loginBlock = $('#login-block');
+  $loginBlockLabel = $('#login-block label');
   $selectLang = $('#select_lang');
+  $btnselectLangLabel = $('#select_lang .btn');
+  $btnSelectLangActive = $('#select_lang .btn.active');
   $loginBlock = $('#login-block');
   $loginBlockHeading = $('#login-block h3');
   $loginButton = $('#login-block .btn-block');
   $loginButtonHover = $('#login-block .btn-block:hover');
   $inputText = $('input.form-control');
 
+  $('head').append("<link href='https://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>");
+
   //common
+  $html.css({
+    'min-width':'1px'
+  });
   $body.css({
     'background':'linear-gradient(-135deg, #2c3e50, #3498db) fixed'
   });
-  $headerInner.css('border','none');
+  $headerInner.css({
+    'width':'auto',
+    'border':'none'
+  });
   $footer.css({
-
+    'width':'100%',
+    'margin-top':'50px',
+    'border-top':'0',
+    'position':'relative'
+  });
+  $('#all-footer a:last-child').after('<br>');
+  $footerInside.css({
+    'width':'auto',
+    'text-align':'center'
   });
   $logo.text('JOBCAN').css({
     'text-decoration':'none',
     'color':'rgb(3, 165, 255)',
-    'font-family':'Avenir, sans-serif',
-    'font-size':'36px'
+    'font-size':'36px',
+    'font-weight':'normal',
+    'font-family':'"Poiret One",Avenir, sans-serif'
   });
   $headerName.css({
     'color':'#fff',
@@ -83,17 +105,30 @@ $(function(){
     'width':'1280px'
   })
 
-  //top page
+  //login page
   $selectLang.css({
     'float':'none',
     'position':'absolute',
     'top':'25px',
-    'left':'0'
+    'right':'10px',
+    'width':'auto'
+  });
+
+  $btnselectLangLabel.css({
+    'border-radius':'0',
+    'background':'none',
+    'color':'#fff',
+    'text-shadow':'#000 0 0 0'
+  });
+  $btnSelectLangActive.css({
+    'color':'#fff',
+    'background':'rgba(0,0,0,.3)'
   });
 
   $loginBlock.css({
+    'position':'relative',
     'width':'600px',
-    'margin-top':'50px',
+    'margin':'50px auto',
     'padding':'40px',
     'border':'none',
     'background':'#131b23',
@@ -102,7 +137,8 @@ $(function(){
     'color':'#fff'
   });
   $loginBlockHeading.html('STAFF MYPAGE LOGIN').css({
-    'font-family':'Avenir, sans-serif',
+    'margin-bottom':'15px',
+    'font-family':'"Poiret One",Avenir, sans-serif',
     'font-size':'30px',
     'font-weight':'lighter',
     'letter-spacing':'.1em'
@@ -121,23 +157,16 @@ $(function(){
       borderColor: "#3498DB",
       color: "#3498DB"
     }, { duration : 300});
-
-    // $(this).velocity(
-    //   { opacity: .4 },
-    //   { curation: 1000}
-    // );
-
   }).mouseleave(function(){
     $(this).velocity({
       borderColor: "#fff",
       color: "#fff"
     }, { duration : 300 });
-    // $(this).velocity(
-    //   { opacity: 1 },
-    //   { curation: 1000}
-    // );
   });
-
+  $loginBlockLabel.css({
+    'font-weight':'normal',
+    'font-size':'14px'
+  });
   $inputText.css({
     'height':'auto',
     'border-radius':'0',
@@ -145,5 +174,24 @@ $(function(){
     'padding':'10px',
     'color':'#333'
   });
+  $('#login-block a').css({
+    'color':'#fff',
+    'text-decoration':'underline'
+  })
+  .mouseenter(function(){
+    $(this).velocity({
+      borderColor: "#3498DB",
+      color: "#3498DB"
+    }, { duration : 300});
+  }).mouseleave(function(){
+    $(this).velocity({
+      borderColor: "#fff",
+      color: "#fff"
+    }, { duration : 300 });
+  });
+  $('#login-block .error').css({
+    'color':'#FA346E'
+  });
+
 
 });
