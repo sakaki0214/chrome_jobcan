@@ -1,45 +1,44 @@
 $(function(){
-  //common
-  $html = $('html');
-  $body = $('body');
-  $header = $('#header');
-  $headerInner = $('#header #header-inner');
-  $logo = $('#header h1 a');
-  $logoutContents = $('#login-contents');
-  $headerName = $('#login-contents span');
-  $headerNameLink = $('#login-contents span a');
-  $btnLogout = $('#login-contents .btn-small');
-  $headerTd = $('#header td');
-  $footer = $('#all-footer');
-  $footerInside = $('#all-footer p');
-  $navBar = $('.navbar');
-  $navBarInner = $('.navbar-inner');
-  $nav = $('.nav');
-
-
-  //top
-  $loginBlock = $('#login-block');
-  $loginBlockLabel = $('#login-block label');
-  $selectLang = $('#select_lang');
-  $btnselectLangLabel = $('#select_lang .btn');
-  $btnSelectLangActive = $('#select_lang .btn.active');
-  $loginBlock = $('#login-block');
-  $loginBlockHeading = $('#login-block h3');
-  $loginButton = $('#login-block .btn-block');
-  $loginButtonHover = $('#login-block .btn-block:hover');
-  $inputText = $('input.form-control');
 
   $('head').append("<link href='https://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>");
+
+  //common
+  var
+  $html = $('html'),
+  $body = $('body'),
+  $header = $('#header'),
+  $headerInner = $('#header-inner'),
+  $logo = $('#header h1 a'),
+  $logoutContents = $('#login-contents'),
+  $headerName = $logoutContents.find('span'),
+  $headerNameLink = $headerName.find('a'),
+  $btnLogout = $('#login-contents .btn-small'),
+  $headerTd = $('#header td'),
+  $footer = $('#all-footer'),
+  $footerInside = $('#all-footer p'),
+  $navBar = $('.navbar'),
+  $navBarInner = $('.navbar-inner'),
+  $nav = $('.nav'),
+  $navDropDown = $('#menu_order table');
+  $pageTitle = $('.page-title');
+
+  //余分な空白を削除
+  $('#menu_order table a').each(function(){
+    $(this).text($.trim($(this).text()));
+    var tx = $(this).html();
+    $(this).html(tx.replace(/&nbsp;/g, ''));
+  });
 
   //common
   $html.css({
     'min-width':'1px'
   });
   $body.css({
-    'background':'linear-gradient(-135deg, #2c3e50, #3498db) fixed'
+    'background':'linear-gradient(-135deg, #2c3e50, #3498db) fixed',
+    'color':'#000',
+    'font-family':'"Lucida Grande", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif'
   });
   $headerInner.css({
-    'width':'auto',
     'border':'none'
   });
   $footer.css({
@@ -63,7 +62,8 @@ $(function(){
   $headerName.css({
     'color':'#fff',
     'padding':'1px 0 5px',
-    'display':'inline-block'
+    'display':'inline-block',
+    'font-size':'11px'
   });
   $headerNameLink.css({
     'color':'#fff'
@@ -81,29 +81,79 @@ $(function(){
     'color':'#fff',
     'text-shadow':'0 0 0 #000'
   }).mouseenter(function(){
-    $(this).css({
-      'color':'#ccc',
-      'border-color':'#ccc'
-    });
+    $(this).velocity({
+      color : '#03A5FF',
+      borderColor : '#03A5FF'
+    }, { duration : 300});
   }).mouseleave(function(){
-    $(this).css({
-      'color':'#fff',
-      'border-color':'#fff'
-    });
+    $(this).velocity({
+      color : '#fff',
+      borderColor : '#fff'
+    }, { duration : 300});
   });
   $headerTd.css({
     'vertical-align':'middle'
   });
   $logoutContents.css({
-    'padding-top':'10px'
+    'padding-top':'13px'
   });
   $navBarInner.css({
-    'background':'#fff',
-    'border':'none'
+    'background':'#2C3E50',
+    'border':'1px solid #03A5FF',
+    'box-shadow':'#000 0 0 0',
+    'border-radius':'0',
+    'margin-bottom':'15px'
+  }).find('li').css({
+    'border-color':'#03A5FF'
+  }).find('a').css({
+    'color':'#03A5FF',
+    'text-shadow':'#000 0 0 0',
+    'font-weight':'normal'
+  }).mouseenter(function(){
+    $(this).velocity({
+      color: "#79CFFF"
+    }, { duration : 300});
+  }).mouseleave(function(){
+    $(this).velocity({
+      color: "#03A5FF"
+    }, { duration : 300 });
   });
   $nav.css({
     'width':'1280px'
   })
+  $navDropDown.css({
+    'background':'#2C3E50',
+    'border':'none'
+  }).find('td').css({
+    'border':'none'
+  }).find('a').css({
+    'display':'inline-block',
+    'padding':'5px 10px',
+    'background':'none',
+    'font-size':'12px'
+  });
+  $pageTitle.css({
+    'color':'#fff',
+    'font-weight':'normal',
+    'background':'none',
+    'padding':'0'
+  });
+
+
+  //login
+  var
+  $loginBlock = $('#login-block'),
+  $loginBlockLabel = $('#login-block label'),
+  $selectLang = $('#select_lang'),
+  $btnselectLangLabel = $('#select_lang .btn'),
+  $btnSelectLangActive = $('#select_lang .btn.active'),
+  $loginBlock = $('#login-block'),
+  $loginBlockHeading = $('#login-block h3'),
+  $loginButton = $('#login-block .btn-block'),
+  $loginButtonHover = $('#login-block .btn-block:hover'),
+  $inputText = $('input.form-control'),
+  $txSave = $loginBlock.find('.checkbox-inline.col-md-offset-3'),
+  $linkAdmin = $loginBlock.find('.col-md-offset-8');
 
   //login page
   $selectLang.css({
@@ -192,6 +242,14 @@ $(function(){
   $('#login-block .error').css({
     'color':'#FA346E'
   });
+  $txSave.css({
+    'margin':'0'
+  });
+  $linkAdmin.css({
+    'margin':'0',
+    'text-align':'right'
+  });
+
 
 
 });
