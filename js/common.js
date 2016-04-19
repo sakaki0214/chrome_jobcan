@@ -1,6 +1,7 @@
 $(function(){
 
   $('head').append("<link href='https://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>");
+  $('head').append("<link href='https://fonts.googleapis.com/css?family=Roboto:100' rel='stylesheet' type='text/css'>");
 
   //common
   var
@@ -81,7 +82,7 @@ $(function(){
     'color':'#fff',
     'text-shadow':'0 0 0 #000'
   }).mouseenter(function(){
-    $(this).velocity({
+    $(this).stop(true).velocity({
       color : '#03A5FF',
       borderColor : '#03A5FF'
     }, { duration : 300});
@@ -110,7 +111,7 @@ $(function(){
     'text-shadow':'#000 0 0 0',
     'font-weight':'normal'
   }).mouseenter(function(){
-    $(this).velocity({
+    $(this).stop(true).velocity({
       color: "#79CFFF"
     }, { duration : 300});
   }).mouseleave(function(){
@@ -186,6 +187,9 @@ $(function(){
     'border-radius':'0',
     'color':'#fff'
   });
+  $loginBlock.find('.col-md-offset-4').css({
+    'margin-left':'0'
+  });
   $loginBlockHeading.html('STAFF MYPAGE LOGIN').css({
     'margin-bottom':'15px',
     'font-family':'"Poiret One",Avenir, sans-serif',
@@ -203,7 +207,7 @@ $(function(){
     'background':'none',
     'border':'1px solid #fff'
   }).mouseenter(function(){
-    $(this).velocity({
+    $(this).stop(true).velocity({
       borderColor: "#3498DB",
       color: "#3498DB"
     }, { duration : 300});
@@ -229,7 +233,7 @@ $(function(){
     'text-decoration':'underline'
   })
   .mouseenter(function(){
-    $(this).velocity({
+    $(this).stop(true).velocity({
       borderColor: "#3498DB",
       color: "#3498DB"
     }, { duration : 300});
@@ -250,6 +254,38 @@ $(function(){
     'text-align':'right'
   });
 
+  //employee
+  var
+  $contents = $('#contents'),
+  $contentsWrapMiddle = $('.contents-wrap-middle'),
+  $clock = $('#clock'),
+  $workStyle = $('#working_status'),
+  $hoge = $('#main h3');
 
 
+  //employee
+  $contents.css({
+    'padding-top':'45px',
+    'padding-bottom':'40px',
+    'background':'rgba(255,255,255,.2)',
+    'border':'none'
+  });
+  $contentsWrapMiddle.css({
+    'background':'none',
+    'text-align':'center'
+  });
+  $clock.css({
+    'color':'#fff',
+    'font-family':'"Roboto", sans-serif'
+  });
+  $workStyle.css({
+    'color':'#fff',
+    'text-align':'center',
+    'display':'inline-block',
+    //'border':'1px solid #fff',
+    'background':'#2C3E50',
+    'padding':'3px 10px',
+    'font-size':'18px',
+    'font-weight':'normal'
+  });
 });
