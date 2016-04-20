@@ -260,7 +260,13 @@ $(function(){
   $contentsWrapMiddle = $('.contents-wrap-middle'),
   $clock = $('#clock'),
   $workStyle = $('#working_status'),
-  $hoge = $('#main h3');
+  $hoge = $('#main h3'),
+  $aditControlArea = $('#adit-control-area'),
+  $aditBtn = $('.aditBtn'),
+  $monthlySummaryInfo = $('#monthly_summary_information'),
+  $nightMode = $('#adit-control-area label'),
+  $h3Heading = $('#wrap-management-page h3'),
+  $infoArea = $('.info');
 
 
   //employee
@@ -282,10 +288,47 @@ $(function(){
     'color':'#fff',
     'text-align':'center',
     'display':'inline-block',
+    'margin':'30px 0 0',
     //'border':'1px solid #fff',
     'background':'#2C3E50',
     'padding':'3px 10px',
     'font-size':'18px',
     'font-weight':'normal'
+  });
+  $aditControlArea.find('textarea')
+  .css({
+    'border-radius':'0',
+    'border':'none',
+    'padding':'5px 10px',
+    'margin-bottom':'15px',
+    'width':'482px'
+  });
+  $aditBtn.css({
+    'margin':'0 0 15px',
+    'background':'none',
+    'border':'1px solid #fff',
+    'color':'#fff'
+  });
+  $monthlySummaryInfo.css({
+    'color':'#fff'
+  });
+  $nightMode.css({
+    'color':'#fff'
+  });
+  $h3Heading.css({
+    'color':'#000',
+    'background':'rgba(255,255,255,.5)',
+    'padding':'7px'
+  });
+  $infoArea.find('div').css({
+    'margin':'50px auto 0',
+    'float':'none'
+  }).find('#top_info_area').css({
+    'padding-bottom':'1px'
+  });
+
+  $h3Heading.each(function(){
+    var tx = $(this).html();
+    $(this).html(tx.replace(/▼/g, ''));
   });
 });

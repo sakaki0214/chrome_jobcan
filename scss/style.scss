@@ -15,3 +15,12 @@
     }
   }
 }
+#adit-button-push {
+  background:none !important;
+  border:1px solid #fff !important;
+  &:hover {
+    background:none !important;
+    border:1px solid #000 !important;
+    color:#000 !important;
+  }
+}
