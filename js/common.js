@@ -266,7 +266,8 @@ $(function(){
   $monthlySummaryInfo = $('#monthly_summary_information'),
   $nightMode = $('#adit-control-area label'),
   $h3Heading = $('#wrap-management-page h3'),
-  $infoArea = $('.info');
+  $infoArea = $('.info'),
+  $topInfoArea = $('#top_info_area');
 
 
   //employee
@@ -320,12 +321,20 @@ $(function(){
     'background':'rgba(255,255,255,.5)',
     'padding':'7px'
   });
-  $infoArea.find('div').css({
+  $infoArea.children('div').css({
     'margin':'50px auto 0',
-    'float':'none'
-  }).find('#top_info_area').css({
+    'float':'none',
+    'background':'none',
+    'border':'1px solid #2C3E50'
+  }).filter(':last').css({
+    'border':'none',
+    'background':'none',
+    'margin':'0'
+  });
+  $topInfoArea.css({
     'padding-bottom':'1px'
   });
+
 
   $h3Heading.each(function(){
     var tx = $(this).html();
