@@ -20,8 +20,10 @@ $(function(){
   $navBar = $('.navbar'),
   $navBarInner = $('.navbar-inner'),
   $nav = $('.nav'),
-  $navDropDown = $('#menu_order table');
-  $pageTitle = $('.page-title');
+  $navDropDown = $('#menu_order table'),
+  $pageTitle = $('.page-title'),
+  $table1 = $('.note1'),
+  $table2 = $('.note2');
 
   //余分な空白を削除
   $('#menu_order table a').each(function(){
@@ -139,6 +141,7 @@ $(function(){
     'background':'none',
     'padding':'0'
   });
+
 
 
   //login
@@ -335,9 +338,34 @@ $(function(){
     'padding-bottom':'1px'
   });
 
-
   $h3Heading.each(function(){
     var tx = $(this).html();
     $(this).html(tx.replace(/▼/g, ''));
   });
+
+
+  //adit modify
+  var $pageHeaderBlock = $('.page-header-block'),
+      $btnInfo = $('.btn-info');
+
+  $pageHeaderBlock.css({
+    'margin':'10px 0 5px',
+    'color':'#fff',
+    'border':'none'
+  }).find('select').css({
+    'margin':'0 10px 0 5px'
+  });
+  $pageHeaderBlock.find('img').css({
+    'margin':'0 0 0 10px'
+  });
+  $btnInfo.css({
+    'background':'none',
+    'border':'1px solid #fff',
+    'border-radius':'0',
+    'padding':'2px 20px',
+    'margin':'0 0 0 15px'
+  });
+  $('#time-table').next('p').css({
+    'color':'#2C3E50'
+  })
 });
