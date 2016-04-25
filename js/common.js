@@ -23,7 +23,8 @@ $(function(){
   $navDropDown = $('#menu_order table'),
   $pageTitle = $('.page-title'),
   $table1 = $('.note1'),
-  $table2 = $('.note2');
+  $table2 = $('.note2'),
+  $all = $('#all');
 
   //余分な空白を削除
   $('#menu_order table a').each(function(){
@@ -140,6 +141,9 @@ $(function(){
     'font-weight':'normal',
     'background':'none',
     'padding':'0'
+  });
+  $all.css({
+    'margin-top':'20px'
   });
 
 
@@ -283,7 +287,10 @@ $(function(){
   });
   $contentsWrapMiddle.css({
     'background':'none',
-    'text-align':'center'
+    'text-align':'center',
+    'color':'#fff'
+  }).find('a').css({
+    'color':'#79CFFF'
   });
   $clock.css({
     'color':'#fff',
@@ -369,4 +376,9 @@ $(function(){
   $('#time-table').next('p').css({
     'color':'#2C3E50'
   })
+
+  // 休暇申請完了画面
+  var $hoge = $('.hoge');
+
+
 });
