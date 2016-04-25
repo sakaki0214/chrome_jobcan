@@ -208,7 +208,8 @@ $(function(){
     'padding':'20px',
     'letter-spacing':'.2em',
     'background':'none',
-    'border':'1px solid #fff'
+    'border':'1px solid #fff',
+    'border-radius':'0'
   }).mouseenter(function(){
     $(this).stop(true).velocity({
       borderColor: "#3498DB",
@@ -346,7 +347,7 @@ $(function(){
 
   //adit modify
   var $pageHeaderBlock = $('.page-header-block'),
-      $btnInfo = $('.btn-info');
+      $btnInfo = $('#search-box .btn-info');
 
   $pageHeaderBlock.css({
     'margin':'10px 0 5px',
