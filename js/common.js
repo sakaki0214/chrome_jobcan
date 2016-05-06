@@ -275,7 +275,9 @@ $(function(){
   $nightMode = $('#adit-control-area label'),
   $h3Heading = $('#wrap-management-page h3'),
   $infoArea = $('.info'),
-  $topInfoArea = $('#top_info_area');
+  $topInfoArea = $('#top_info_area'),
+  $prevMonth = $('.prevmonth'),
+  $nextMonth = $('.nextmonth');
 
 
   //employee
@@ -291,6 +293,38 @@ $(function(){
     'color':'#fff'
   }).find('a').css({
     'color':'#79CFFF'
+  });
+  $contentsWrapMiddle.find('th').css({
+    'text-align':'left',
+    'padding':'10px 8px',
+    'border-bottom':'1px solid rgba(255,255,255,.1)'
+  });
+  $contentsWrapMiddle.find('td').css({
+    'text-align':'left',
+    'padding':'10px 8px',
+    'border-bottom':'1px solid rgba(255,255,255,.1)'
+  });
+  $contentsWrapMiddle.find('.btn').css({
+    'background':'none',
+    'border':'1px solid #fff',
+    'border-radius':'0',
+    'padding':'2px 20px',
+    'margin':'0 5px 0 0',
+    'color':'#fff',
+    'text-shadow':'none'
+  }).mouseenter(function(){
+    $(this).stop(true).velocity({
+      color : '#2C3E50',
+      borderColor : '#2C3E50'
+    }, { duration : 300});
+  }).mouseleave(function(){
+    $(this).velocity({
+      color : '#fff',
+      borderColor : '#fff'
+    }, { duration : 300});
+  });
+  $('.contents-wrap-middle tr').eq(2).children('td').css({
+    'border':'none'
   });
   $clock.css({
     'color':'#fff',
@@ -348,11 +382,18 @@ $(function(){
 
   $h3Heading.each(function(){
     var tx = $(this).html();
-    $(this).html(tx.replace(/▼/g, ''));
+    var $h3HeadingInner = $(this).text();
+
+    //$(this).html(tx.replace(/▼/g, ''));
+
+    if($h3HeadingInner === "▼"){
+      $(this).hide();
+    }
   });
+  $prevMonth.html('&lt;&lt; ');
+  $nextMonth.html('&gt;&gt; ');
 
-
-  //adit modify
+  //adit modify 打刻修正
   var $pageHeaderBlock = $('.page-header-block'),
       $btnInfo = $('#search-box .btn-info');
 
@@ -376,9 +417,53 @@ $(function(){
   $('#time-table').next('p').css({
     'color':'#2C3E50'
   })
+  $table2.find('th').css({
+    'background':'rgba(0,0,0,.2)'
+  })
 
   // 休暇申請完了画面
   var $hoge = $('.hoge');
 
 
+  //table
+  var $typeBTh = $('.wrap-type-b-table th'),
+  $typeBTheadTh = $('.wrap-type-b-table thead th'),
+  $table = $('.wrap-type-b-table　table'),
+  $tableNote = $('table.note'),
+  $typeBTd = $('.wrap-type-b-table td');
+
+  $typeBTh.css({
+    'background':'rgba(0,0,0,.2)',
+    'border':'1px solid rgba(255,255,255,.3)'
+  });
+  $typeBTheadTh.css({
+    'background':'rgba(0,0,0,.4)',
+    'border':'1px solid rgba(255,255,255,.3)'
+  });
+  $typeBTd.css({
+    'border':'1px solid rgba(255,255,255,.3)'
+  });
+  $typeBTd.find('a').css({
+    'color':'#fff'
+  });
+  $table.css({
+    //'border':'1px solid rgba(255,255,255, .6)'
+  });
+  $tableNote.css({
+    'border':'1px solid rgba(255,255,255,.3)'
+  });
+  $tableNote.find('th').css({
+    'border':'1px solid rgba(255,255,255,.3)'
+  });
+  $tableNote.find('td').css({
+    'border':'1px solid rgba(255,255,255,.3)'
+  });
+  $tableNote.find('th').css({
+    'background':'rgba(255,255,255,.3)'
+  })
+  $('table.note tr').each(function(){
+    $(this).find('td').eq(2).css({
+      'color':'#fff'
+    });
+  });
 });
