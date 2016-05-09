@@ -419,7 +419,7 @@ $(function(){
   })
   $table2.find('th').css({
     'background':'rgba(0,0,0,.2)'
-  })
+  });
 
   // 休暇申請完了画面
   var $hoge = $('.hoge');
@@ -450,7 +450,8 @@ $(function(){
     //'border':'1px solid rgba(255,255,255, .6)'
   });
   $tableNote.css({
-    'border':'1px solid rgba(255,255,255,.3)'
+    'border':'1px solid rgba(255,255,255,.3)',
+    'margin-bottom':'10px'
   });
   $tableNote.find('th').css({
     'border':'1px solid rgba(255,255,255,.3)'
@@ -459,11 +460,21 @@ $(function(){
     'border':'1px solid rgba(255,255,255,.3)'
   });
   $tableNote.find('th').css({
-    'background':'rgba(255,255,255,.3)'
+    'background':'rgba(255,255,255,.2)'
   })
   $('table.note tr').each(function(){
     $(this).find('td').eq(2).css({
       'color':'#fff'
     });
   });
+
+
+  //error
+  $('th font').css({
+    'color':'#FA346E',
+    'padding-left':'5px'
+  });
+  $('#notice_error, #time_error, #date_error, #group_id_error, #employee_id_error, #message-box').css({
+    'color':'#FA346E'
+  })
 });
