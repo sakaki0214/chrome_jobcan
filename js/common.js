@@ -452,7 +452,7 @@ $(function(){
   $tableNote.css({
     'border':'1px solid rgba(255,255,255,.3)',
     'margin-bottom':'10px'
-  });
+  }); 
   $tableNote.find('th').css({
     'border':'1px solid rgba(255,255,255,.3)'
   });
