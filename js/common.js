@@ -22,6 +22,7 @@ $(function(){
   $nav = $('.nav'),
   $navDropDown = $('#menu_order table'),
   $pageTitle = $('.page-title'),
+  $table0 = $('.note'),
   $table1 = $('.note1'),
   $table2 = $('.note2'),
   $all = $('#all');
@@ -417,6 +418,9 @@ $(function(){
   $('#time-table').next('p').css({
     'color':'#2C3E50'
   })
+  $table0.find('th').css({
+    'background':'rgba(0,0,0,.2)'
+  });
   $table2.find('th').css({
     'background':'rgba(0,0,0,.2)'
   });
@@ -452,7 +456,7 @@ $(function(){
   $tableNote.css({
     'border':'1px solid rgba(255,255,255,.3)',
     'margin-bottom':'10px'
-  }); 
+  });
   $tableNote.find('th').css({
     'border':'1px solid rgba(255,255,255,.3)'
   });
